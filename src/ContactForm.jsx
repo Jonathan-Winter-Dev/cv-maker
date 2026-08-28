@@ -1,26 +1,4 @@
-import { useState } from "react";
-
-export default function ContactForm() {
-  const [contact, setContact] = useState({
-    fName: "",
-    lName: "",
-    email: "",
-    phone: "",
-  });
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const dataObject = Object.fromEntries(formData);
-
-    setContact({
-      fName: dataObject.fName,
-      lName: dataObject.lName,
-      email: dataObject.email,
-      phone: dataObject.phone,
-    });
-  }
-
+export default function ContactForm({ handleSubmit }) {
   return (
     <form onSubmit={handleSubmit}>
       <label for="fName">First Name:</label>
