@@ -1,28 +1,39 @@
 import { useState } from "react";
 
-function handleSubmit(e) {
-  e.preventDefault();
-  const formData = new FormData(e.target);
-  const dataObject = Object.fromEntries(formData);
-}
-
-function ContactForm() {
+export default function Contact() {
   const [firstName, setFirstname] = useState("");
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <label for="fname">First Name</label>
-      <input type="text" name="fname" id="fname" />
-      <input type="submit" />
-    </form>
-  );
-}
+  function handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const dataObject = Object.fromEntries(formData);
+    setFirstname(dataObject.fname);
+    console.log(dataObject);
+  }
 
-export default function Contact() {
+  function handleChange(e) {
+    setFirstname(e.target.value);
+  }
+
+  function ContactForm() {
+    return (
+      <form onSubmit={handleSubmit}>
+        <label for="fname">First Name</label>
+        <input
+          type="text"
+          name="fname"
+          id="fname"
+          // onChange={handleChange}
+        />
+        <input type="submit" />
+      </form>
+    );
+  }
+
   return (
     <>
       <ContactForm />
-      <p>First Name Here</p>
+      <p>{firstName}</p>
     </>
   );
 }
