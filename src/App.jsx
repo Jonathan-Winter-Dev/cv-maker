@@ -1,11 +1,13 @@
 import { useState } from "react";
-import Contact from "./Contact.jsx";
+import ContactForm from "./ContactForm.jsx";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <Contact />
+      <ContactForm />
+
+      {/* <Contact /> */}
     </>
   );
 }
