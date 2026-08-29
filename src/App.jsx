@@ -1,11 +1,10 @@
-import { useState } from "react";
-import { Contact } from "./Contact.jsx";
 import "./App.css";
+import CvBuilder from "./CvBuilder.jsx";
 
 function App() {
   return (
     <>
-      <Contact />
+      <CvBuilder />
     </>
   );
 }

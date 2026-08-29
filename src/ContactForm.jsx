@@ -1,6 +1,21 @@
-export default function ContactForm({ handleSubmit }) {
+export default function ContactForm({ updateContact }) {
+  function handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const dataObject = Object.fromEntries(formData);
+
+    const contactData = {
+      fName: dataObject.fName,
+      lName: dataObject.lName,
+      email: dataObject.email,
+      phone: dataObject.phone,
+    };
+
+    updateContact(contactData);
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id="contactForm">
       <label for="fName">First Name:</label>
       <input type="text" name="fName" id="fName" required />
       <label for="fName">Last Name:</label>
