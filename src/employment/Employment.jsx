@@ -4,7 +4,6 @@ import JobForm from "./JobForm";
 
 export default function Employment() {
   const [jobs, setJobs] = useState([]);
-
   const jobsArr = [...jobs];
 
   const jobDisplay = jobsArr.map((item) => {
@@ -23,8 +22,13 @@ export default function Employment() {
     setJobs(jobArr);
   }
 
-  function updateJob(jobData) {
-    console.log(jobData);
+  function updateJob(id, key, value) {
+    const newArr = jobs.map((item) => {
+      if (item.id === id) {
+        return { ...item, [key]: value };
+      }
+    });
+    setJobs(newArr);
   }
 
   return (

@@ -1,24 +1,32 @@
-import Job from "./Job";
-
 export default function JobForm({ updateJob, job }) {
-  function handleSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const dataObject = Object.fromEntries(formData);
+  function handleChange(e) {
+    console.log(e);
+    updateJob(job.id, e.target.id, e.target.value);
+  }
 
-    const newJob = { ...job };
-
-    newJob.employer = dataObject.employer;
-
+  function handleEmployerChange(e) {
+    const newJob = { ...job, employer: e.target.value };
     updateJob(newJob);
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={(e) => e.preventDefault()}>
       <label htmlFor="employer">Employer</label>
-      <input type="text" name="employer" id="employer" />
+      <input
+        type="text"
+        name="employer"
+        id="employer"
+        value={job.employer}
+        onChange={handleChange}
+      />
       <label htmlFor="jobTitle">Title</label>
-      <input type="text" name="jobTitle" id="jobTitle" />
+      <input
+        type="text"
+        name="jobTitle"
+        id="jobTitle"
+        value={job.title}
+        onChange={handleChange}
+      />
       <label htmlFor="location">Location</label>
       <input type="text" name="jobLocation" id="jobLocation" />
       <label htmlFor="jobStartDate">Start Date</label>
