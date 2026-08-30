@@ -26,6 +26,8 @@ export default function Employment() {
     const newArr = jobs.map((item) => {
       if (item.id === id) {
         return { ...item, [key]: value };
+      } else {
+        return item;
       }
     });
     setJobs(newArr);
