@@ -3,6 +3,7 @@ import ContactForm from "./ContactForm";
 import ContactCv from "./ContactCv";
 import ProfileForm from "./ProfileForm.jsx";
 import ProfileCv from "./ProfileCv.jsx";
+import Employment from "./employment/Employment.jsx";
 
 export default function CvBuilder() {
   const [contact, setContact] = useState({
@@ -27,6 +28,7 @@ export default function CvBuilder() {
       <div className="cvForms">
         <ContactForm updateContact={updateContact} />
         <ProfileForm updateProfile={updateProfile} />
+        <Employment />
       </div>
 
       <div className="cvPage">

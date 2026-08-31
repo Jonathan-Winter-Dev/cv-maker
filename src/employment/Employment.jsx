@@ -9,12 +9,17 @@ export default function Employment() {
   const jobDisplay = jobsArr.map((item) => {
     return (
       <div className="jobContainer" key={item.id}>
-        <JobForm updateJob={updateJob} job={item} />
+        <JobForm updateJob={updateJob} job={item} deleteJob={deleteJob} />
         <p>{item.employer}</p>
         <p>{item.title}</p>
       </div>
     );
   });
+
+  function deleteJob(id) {
+    const jobArr = [...jobs];
+    setJobs(jobArr.filter((job) => job.id !== id));
+  }
 
   function addJob() {
     const jobArr = [...jobs];
