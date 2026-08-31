@@ -1,11 +1,9 @@
-import { useState } from "react";
 import Job from "./Job";
 import JobForm from "./JobForm";
 
-export default function Employment() {
-  const [jobs, setJobs] = useState([]);
+export default function Employment(jobs, updateJobs) {
+  console.log(jobs);
   const jobsArr = [...jobs];
-
   const jobDisplay = jobsArr.map((item) => {
     return (
       <div className="jobContainer" key={item.id}>
@@ -17,14 +15,12 @@ export default function Employment() {
   });
 
   function deleteJob(id) {
-    const jobArr = [...jobs];
-    setJobs(jobArr.filter((job) => job.id !== id));
+    updateJobs(jobsArr.filter((job) => job.id !== id));
   }
 
   function addJob() {
-    const jobArr = [...jobs];
-    jobArr.push(new Job());
-    setJobs(jobArr);
+    jobsArr.push(new Job());
+    updateJobs(jobsArr);
   }
 
   function updateJob(id, key, value) {

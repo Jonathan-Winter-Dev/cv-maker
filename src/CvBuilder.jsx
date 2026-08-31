@@ -13,7 +13,13 @@ export default function CvBuilder() {
     phone: "",
   });
 
+  const [jobs, setJobs] = useState([]);
+
   const [profile, setProfile] = useState("");
+
+  function updateJobs(jobsData) {
+    setJobs(jobsData);
+  }
 
   function updateContact(contactData) {
     setContact(contactData);
@@ -28,7 +34,7 @@ export default function CvBuilder() {
       <div className="cvForms">
         <ContactForm updateContact={updateContact} />
         <ProfileForm updateProfile={updateProfile} />
-        <Employment />
+        <Employment jobs={jobs} updateJobs={updateJobs} />
       </div>
 
       <div className="cvPage">
