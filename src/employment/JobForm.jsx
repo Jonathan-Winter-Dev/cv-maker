@@ -1,10 +1,6 @@
-export default function JobForm({ updateJob, deleteJob, job }) {
+export default function JobForm({ updateJob, job }) {
   function handleChange(e) {
     updateJob(job.id, e.target.id, e.target.value);
-  }
-
-  function handleDelete() {
-    deleteJob(job.id);
   }
 
   return (
@@ -56,7 +52,6 @@ export default function JobForm({ updateJob, deleteJob, job }) {
         value={job.description}
         onChange={handleChange}
       ></textarea>
-      <button onClick={handleDelete}>Delete Job</button>
     </form>
   );
 }
