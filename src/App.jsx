@@ -4,7 +4,7 @@ import CvBuilder from "./CvBuilder.jsx";
 function App() {
   return (
     <>
-      <CvBuilder className="cvBuilder" />
+      <CvBuilder />
     </>
   );
 }

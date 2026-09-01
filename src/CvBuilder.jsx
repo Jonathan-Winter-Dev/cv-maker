@@ -15,9 +15,22 @@ export default function CvBuilder() {
     phone: "",
   });
 
-  const [jobs, setJobs] = useState([]);
-
   const [profile, setProfile] = useState("");
+
+  const [jobs, setJobs] = useState([]);
+  const [education, setEducation] = useState([]);
+
+  const educationForms = jobs.map((item) => {
+    return (
+      <div className="jobFormContainer" key={item.id}>
+        <JobForm
+          updateJob={updateEducation}
+          deleteJob={deleteEducation}
+          job={item}
+        />
+      </div>
+    );
+  });
 
   const jobForms = jobs.map((item) => {
     return (
@@ -29,14 +42,28 @@ export default function CvBuilder() {
 
   const jobCv = jobs.map((item) => <JobCv key={item.id} job={item} />);
 
+  const educationCv = education.map((item) => (
+    <JobCv key={item.id} job={item} />
+  ));
+
   function deleteJob(id) {
     setJobs(jobs.filter((item) => item.id !== id));
+  }
+
+  function deleteEducation(id) {
+    setEducation(education.filter((item) => item.id !== id));
   }
 
   function addJob() {
     const jobsArr = [...jobs];
     jobsArr.push(new Job());
     setJobs(jobsArr);
+  }
+
+  function addEducation() {
+    const educationArr = [...education];
+    educationArr.push(new Job());
+    setEducation(educationArr);
   }
 
   function updateJob(id, key, value) {
@@ -48,6 +75,17 @@ export default function CvBuilder() {
       }
     });
     setJobs(newArr);
+  }
+
+  function updateEducation(id, key, value) {
+    const newArr = education.map((item) => {
+      if (item.id === id) {
+        return { ...item, [key]: value };
+      } else {
+        return item;
+      }
+    });
+    setEducation(newArr);
   }
 
   function updateContact(contactData) {
@@ -64,7 +102,13 @@ export default function CvBuilder() {
         <ContactForm updateContact={updateContact} />
         <ProfileForm updateProfile={updateProfile} />
         <button onClick={addJob}>Add Job</button>
-        <>{jobForms}</>
+        <div className="jobForms">
+          <>{jobForms}</>
+        </div>
+        <div className="educationForms">
+          <button onClick={addEducation}>Add Education</button>
+          <>{educationForms}</>
+        </div>
       </div>
 
       <div className="cvPage">
@@ -73,6 +117,10 @@ export default function CvBuilder() {
         <div className="employmentContainer">
           <h2>Employment History</h2>
           <>{jobCv}</>
+        </div>
+        <div className="educationContainer">
+          <h2>Education </h2>
+          <>{educationCv}</>
         </div>
       </div>
     </div>
