@@ -17,6 +17,8 @@ export default function CvBuilder() {
 
   const [jobs, setJobs] = useState([]);
 
+  const [profile, setProfile] = useState("");
+
   const jobForms = jobs.map((item) => {
     return (
       <div className="jobFormContainer" key={item.id}>
@@ -36,8 +38,6 @@ export default function CvBuilder() {
     jobsArr.push(new Job());
     setJobs(jobsArr);
   }
-
-  const [profile, setProfile] = useState("");
 
   function updateJob(id, key, value) {
     const newArr = jobs.map((item) => {
@@ -59,7 +59,7 @@ export default function CvBuilder() {
   }
 
   return (
-    <>
+    <div className="cvBuilder">
       <div className="cvForms">
         <ContactForm updateContact={updateContact} />
         <ProfileForm updateProfile={updateProfile} />
@@ -70,8 +70,11 @@ export default function CvBuilder() {
       <div className="cvPage">
         <ContactCv contact={contact} />
         <ProfileCv profile={profile} />
-        <>{jobCv}</>
+        <div className="employmentContainer">
+          <h2>Employment History</h2>
+          <>{jobCv}</>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
