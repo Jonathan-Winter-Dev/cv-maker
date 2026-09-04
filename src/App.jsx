@@ -5,8 +5,8 @@ import CvBuilder from "./CvBuilder.jsx";
 function App() {
   return (
     <>
-      {/* <CvBuilder /> */}
-      <TestBuilder />
+      <CvBuilder />
+      {/* <TestBuilder /> */}
     </>
   );
 }
