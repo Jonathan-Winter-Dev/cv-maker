@@ -22,42 +22,9 @@ export default function CvBuilder() {
     setJobs(update);
   }
 
-  // const educationForms = education.map((item) => {
-  //   return (
-  //     <div className="jobFormContainer" key={item.id}>
-  //       <JobForm
-  //         updateJob={updateEducation}
-  //         deleteJob={deleteEducation}
-  //         job={item}
-  //       />
-  //     </div>
-  //   );
-  // });
-
-  // const educationCv = education.map((item) => (
-  //   <JobCv key={item.id} job={item} />
-  // ));
-
-  // function deleteEducation(id) {
-  //   setEducation(education.filter((item) => item.id !== id));
-  // }
-
-  // function addEducation() {
-  //   const educationArr = [...education];
-  //   educationArr.push(new Job());
-  //   setEducation(educationArr);
-  // }
-
-  // function updateEducation(id, key, value) {
-  //   const newArr = education.map((item) => {
-  //     if (item.id === id) {
-  //       return { ...item, [key]: value };
-  //     } else {
-  //       return item;
-  //     }
-  //   });
-  //   setEducation(newArr);
-  // }
+  function updateEducation(update) {
+    setEducation(update);
+  }
 
   function updateContact(contactData) {
     setContact(contactData);
@@ -73,20 +40,14 @@ export default function CvBuilder() {
         <ContactForm updateContact={updateContact} />
         <ProfileForm updateProfile={updateProfile} />
         <JobForm updateJobs={updateJobs} jobs={[...jobs]} />
-        {/* <div className="educationForms">
-          <button onClick={addEducation}>Add Education</button>
-          <>{educationForms}</>
-        </div> */}
+        <JobForm updateJobs={updateEducation} jobs={[...education]} />
       </div>
 
       <div className="cvPage">
         <ContactCv contact={contact} />
         <ProfileCv profile={profile} />
         <JobCv jobs={[...jobs]} />
-        {/* <div className="educationContainer">
-          <h2>Education </h2>
-          <>{educationCv}</>
-        </div>  */}
+        <JobCv jobs={[...education]} />
       </div>
     </div>
   );
