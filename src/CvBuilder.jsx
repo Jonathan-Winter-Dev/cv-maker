@@ -5,6 +5,7 @@ import ProfileForm from "./ProfileForm.jsx";
 import ProfileCv from "./ProfileCv.jsx";
 import JobForm from "./employment/JobForm.jsx";
 import JobCv from "./employment/JobCv.jsx";
+import EducationForm from "./education/EducationForm.jsx";
 
 export default function CvBuilder() {
   const [contact, setContact] = useState({
@@ -40,14 +41,17 @@ export default function CvBuilder() {
         <ContactForm updateContact={updateContact} />
         <ProfileForm updateProfile={updateProfile} />
         <JobForm updateJobs={updateJobs} jobs={[...jobs]} />
-        <JobForm updateJobs={updateEducation} jobs={[...education]} />
+        <EducationForm
+          updateEduction={updateEducation}
+          schools={[...education]}
+        />
       </div>
 
       <div className="cvPage">
         <ContactCv contact={contact} />
         <ProfileCv profile={profile} />
         <JobCv jobs={[...jobs]} />
-        <JobCv jobs={[...education]} />
+        {/* <JobCv schools={[...education]} /> */}
       </div>
     </div>
   );

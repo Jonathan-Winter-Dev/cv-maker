@@ -1,6 +1,6 @@
 import Job from "./Job";
 
-export default function TestForm({ updateJobs, jobs }) {
+export default function JobForm({ updateJobs, jobs }) {
   function handleChange(e) {
     const newArr = jobs.map((item) => {
       console.log(e, item.id);
