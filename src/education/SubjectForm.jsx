@@ -1,10 +1,6 @@
-import Education from "./Education";
-
 export default function SubjectForm({ subject, handleUpdate }) {
-  function handleSubjectUpdate(e) {}
-
   return (
-    <form action="" key={subject.id} onSubmit={(e) => e.preventDefault()}>
+    <form key={subject.id} action="" onSubmit={(e) => e.preventDefault()}>
       <label htmlFor="name">Name</label>
       <input
         onChange={handleUpdate}

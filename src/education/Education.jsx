@@ -7,26 +7,4 @@ export default class Education {
     this.id = id ?? crypto.randomUUID();
     this.subjects = [];
   }
-
-  getSubjects() {
-    return [...this.subjects];
-  }
-
-  updateSubjects(newArr) {
-    this.subjects = newArr;
-  }
-
-  addSubject() {
-    const newArr = [...this.subjects];
-    newArr.push(new Subject());
-    this.subjects = newArr;
-  }
-}
-
-class Subject {
-  constructor(subject, grade, id) {
-    this.subject = subject;
-    this.grade = grade;
-    this.id = id ?? crypto.randomUUID();
-  }
 }
