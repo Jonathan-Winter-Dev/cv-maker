@@ -16,11 +16,10 @@ export default function CvBuilder() {
   });
 
   const [profile, setProfile] = useState("");
-
   const [jobs, setJobs] = useState([]);
   const [education, setEducation] = useState([]);
 
-  const educationForms = jobs.map((item) => {
+  const educationForms = education.map((item) => {
     return (
       <div className="jobFormContainer" key={item.id}>
         <JobForm

@@ -1,10 +1,12 @@
+import TestBuilder from "../TestBuilder.jsx";
 import "./App.css";
 import CvBuilder from "./CvBuilder.jsx";
 
 function App() {
   return (
     <>
-      <CvBuilder />
+      {/* <CvBuilder /> */}
+      <TestBuilder />
     </>
   );
 }
