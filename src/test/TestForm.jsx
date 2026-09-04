@@ -1,6 +1,9 @@
+import Job from "../employment/Job";
+
 export default function TestForm({ updateTest, testObjects }) {
   function handleChange(e) {
     const newArr = testObjects.map((item) => {
+      console.log(e, item.id);
       if (item.id === e.target.dataset.id) {
         return { ...item, [e.target.id]: e.target.value };
       } else {
@@ -8,20 +11,16 @@ export default function TestForm({ updateTest, testObjects }) {
       }
     });
     updateTest(newArr);
-
-    // const newArr = testObjects.map((item) => {
-    //   if (item.id === id) {
-    //     return { ...item, [key]: value };
-    //   } else {
-    //     return item;
-    //   }
-    // });
-    // updateTest(newArr);
   }
 
   function handleDelete(e) {
-    console.log(e.target.dataset.id);
     updateTest(testObjects.filter((item) => item.id !== e.target.dataset.id));
+  }
+
+  function handleAddJob() {
+    const newArr = [...testObjects];
+    newArr.push(new Job());
+    updateTest(newArr);
   }
 
   const Forms = testObjects.map((job) => {
@@ -38,7 +37,7 @@ export default function TestForm({ updateTest, testObjects }) {
         />
         <label htmlFor="jobTitle">Title</label>
         <input
-          dataset-id={job.id}
+          data-id={job.id}
           type="text"
           name="title"
           id="title"
@@ -47,7 +46,7 @@ export default function TestForm({ updateTest, testObjects }) {
         />
         <label htmlFor="location">Location</label>
         <input
-          dataset-id={job.id}
+          data-id={job.id}
           type="text"
           name="location"
           id="location"
@@ -56,7 +55,7 @@ export default function TestForm({ updateTest, testObjects }) {
         />
         <label htmlFor="startDate">Start Date</label>
         <input
-          dataset-id={job.id}
+          data-id={job.id}
           type="date"
           name="startDate"
           id="startDate"
@@ -65,7 +64,7 @@ export default function TestForm({ updateTest, testObjects }) {
         />
         <label htmlFor="endDate">End Date</label>
         <input
-          dataset-id={job.id}
+          data-id={job.id}
           type="date"
           name="endDate"
           id="endDate"
@@ -74,18 +73,23 @@ export default function TestForm({ updateTest, testObjects }) {
         />
         <label htmlFor="description">Description</label>
         <textarea
-          dataset-id={job.id}
+          data-id={job.id}
           name="description"
           id="description"
           value={job.description}
           onChange={handleChange}
         ></textarea>
-        <button dataset-id={job.id} onClick={handleDelete}>
+        <button data-id={job.id} onClick={handleDelete}>
           Delete Job
         </button>
       </form>
     );
   });
 
-  return <>{Forms}</>;
+  return (
+    <>
+      {Forms}
+      <button onClick={handleAddJob}>Add Job</button>
+    </>
+  );
 }

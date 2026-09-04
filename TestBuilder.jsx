@@ -1,6 +1,6 @@
 import { useState } from "react";
 import TestForm from "./src/test/TestForm";
-import Job from "./src/employment/Job";
+import Test from "./src/test/Test";
 
 export default function TestBuilder() {
   const [test, setTest] = useState([]);
@@ -9,16 +9,10 @@ export default function TestBuilder() {
     setTest(update);
   }
 
-  function addTest() {
-    const update = [...test];
-    update.push(new Job());
-    setTest(update);
-  }
-
   return (
     <>
-      <button onClick={addTest}>Add Test</button>
       <TestForm updateTest={updateTest} testObjects={[...test]} />
+      <Test jobs={[...test]} />
     </>
   );
 }
