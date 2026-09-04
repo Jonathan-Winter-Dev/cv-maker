@@ -37,9 +37,42 @@ export default function EducationForm({ updateEduction, schools }) {
     updateEduction(newArr);
   }
 
+  // ********** TODO ******************
+  // the below does not work because i am passing in subject id rather than school id. for this update
+  // to work i need to add school id? feels messy, with nested loops.
+  function updateSubject(id, key, value) {
+    updateEduction(
+      schools.map((item) => {
+        if (item.id === id) {
+          return { ...item, [key]: value };
+        } else {
+          return item;
+        }
+      }),
+    );
+    console.log(schools);
+  }
+
+  // function deleteSubject(id) {
+  //   updateEduction(
+  //     schools.map(item => {
+  //       if(item.id == id) {
+  //         const newSubjectsArr =
+
+  //       }
+  //     })
+  //   )
+  // }
+
   const Forms = schools.map((school) => {
     const subjects = school.subjects.map((subject) => {
-      return <SubjectForm subject={subject} />;
+      return (
+        <SubjectForm
+          parentId={school.id}
+          subject={subject}
+          updateSubject={updateSubject}
+        />
+      );
     });
 
     return (
