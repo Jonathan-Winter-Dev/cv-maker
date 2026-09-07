@@ -37,26 +37,41 @@ export default function EducationForm({
 
     updateEduction(
       schools.map((el) => {
-        if (el.id === e.target.dataset.id) {
+        if (el.id === e.target.dataset.parentId) {
           const updatedArr = [...el.subjects];
           updatedArr.push(newSubject.id);
           return { ...el, subjects: [...updatedArr] };
+        } else {
+          return el;
         }
       }),
     );
   }
 
+  function handleSubjectUpdate(e) {
+    const newArr = subjects.map((item) => {
+      if (item.id === e.target.dataset.id) {
+        return { ...item, [e.target.id]: e.target.value };
+      } else {
+        return item;
+      }
+    });
+    updateSubjects(newArr);
+  }
+
   // WONT WORK, SCHOOL NOW JUST HOLDS SUBJECT ID INSTEAD OF OBJECT
   const Forms = schools.map((school) => {
-    // const subjects = school.subjects.map((subject) => {
-    //   return (
-    //     <SubjectForm
-    //       parentId={school.id}
-    //       subject={subject}
-    //       updateSubjects={updateSubjects}
-    //     />
-    //   );
-    // });
+    const subjectForms = subjects.map((subject) => {
+      if (subject.parentId === school.id) {
+        return (
+          <SubjectForm
+            parentId={school.id}
+            subject={subject}
+            handleSubjectUpdate={handleSubjectUpdate}
+          />
+        );
+      }
+    });
 
     return (
       <div className="educationFormContainer">
@@ -101,7 +116,7 @@ export default function EducationForm({
             Delete
           </button>
         </form>
-        {/* <>{subjects}</> */}
+        {subjectForms}
         <button data-id={school.id} onClick={handleAddSubject}>
           Add Subject
         </button>

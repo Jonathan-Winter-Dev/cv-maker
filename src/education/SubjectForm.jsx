@@ -1,14 +1,8 @@
-export default function SubjectForm({ subject, updateSubject, deleteSubject }) {
-  function handleSubjectUpdate(e) {
-    updateSubject(
-      e.target.dataset.id,
-      e.target.dataset.parentid,
-      e.target.id,
-      e.target.value,
-    );
-    console.log();
-  }
-
+export default function SubjectForm({
+  subject,
+  handleSubjectUpdate,
+  deleteSubject,
+}) {
   function handleSubjectDelete(e) {
     deleteSubject(e.target.dataset.id);
   }
@@ -24,11 +18,12 @@ export default function SubjectForm({ subject, updateSubject, deleteSubject }) {
           type="text"
           name="subject"
           id="subject"
-          value={subject.name}
+          value={subject.subject}
         />
         <label htmlFor="name">Grade</label>
         <input
           onChange={handleSubjectUpdate}
+          data-parentid={subject.parentId}
           data-id={subject.id}
           type="text"
           name="grade"

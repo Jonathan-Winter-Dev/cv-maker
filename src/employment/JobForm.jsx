@@ -3,7 +3,6 @@ import Job from "./Job";
 export default function JobForm({ updateJobs, jobs }) {
   function handleChange(e) {
     const newArr = jobs.map((item) => {
-      console.log(e, item.id);
       if (item.id === e.target.dataset.id) {
         return { ...item, [e.target.id]: e.target.value };
       } else {
@@ -87,11 +86,9 @@ export default function JobForm({ updateJobs, jobs }) {
   });
 
   return (
-    <>
-      <div className="employmentFormsContainer">
-        {Forms}
-        <button onClick={handleAddJob}>Add Job</button>
-      </div>
-    </>
+    <div className="employmentFormsContainer">
+      {Forms}
+      <button onClick={handleAddJob}>Add Job</button>
+    </div>
   );
 }
