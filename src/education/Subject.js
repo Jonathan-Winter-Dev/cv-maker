@@ -1,7 +1,8 @@
 export default class Subject {
-  constructor(name, grade, id) {
-    this.name = name;
-    this.grade = grade;
-    this.id = id ?? crypto.randomUUID();
+  constructor(parentId) {
+    this.name = "";
+    this.grade = "";
+    this.id = crypto.randomUUID();
+    this.parentId = parentId;
   }
 }

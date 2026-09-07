@@ -28,7 +28,7 @@ export default function EducationForm({ updateEduction, schools }) {
     const newArr = schools.map((item) => {
       if (item.id === e.target.dataset.id) {
         const newSubjectsArr = [...item.subjects];
-        newSubjectsArr.push(new Subject());
+        newSubjectsArr.push(new Subject(item.id));
         return { ...item, subjects: newSubjectsArr };
       } else {
         return item;
@@ -40,11 +40,17 @@ export default function EducationForm({ updateEduction, schools }) {
   // ********** TODO ******************
   // the below does not work because i am passing in subject id rather than school id. for this update
   // to work i need to add school id? feels messy, with nested loops.
-  function updateSubject(id, key, value) {
+  function updateSubject(subjectId, key, value, parentId) {
     updateEduction(
       schools.map((item) => {
-        if (item.id === id) {
-          return { ...item, [key]: value };
+        if (item.id === parentId) {
+          return item.subjects.map((subject) => {
+            if (subject.id === subjectId) {
+              return { ...subject, [key]: value };
+            } else {
+              return subject;
+            }
+          });
         } else {
           return item;
         }
@@ -52,6 +58,23 @@ export default function EducationForm({ updateEduction, schools }) {
     );
     console.log(schools);
   }
+
+  // function updateSubject(subjectId, key, value, parentId {
+  //   const newSchools = schools.map(school => {
+  //     if (school.id === parentId) {
+  //       school.subjects.map(subject => {
+  //         if (subject.id === subjectId) {
+  //           return {...subject, [key]: value}
+  //         } else {
+  //           return subject
+  //         }
+  //       })
+  //     } else {
+  //       return school
+  //     }
+  //   })
+
+  // })
 
   // function deleteSubject(id) {
   //   updateEduction(
