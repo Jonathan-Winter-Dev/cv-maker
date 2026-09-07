@@ -2,7 +2,12 @@ import Education from "./Education";
 import SubjectForm from "./SubjectForm";
 import Subject from "./Subject";
 
-export default function EducationForm({ updateEduction, schools }) {
+export default function EducationForm({
+  updateEduction,
+  schools,
+  updateSubjects,
+  subjects,
+}) {
   function handleChange(e) {
     const newArr = schools.map((item) => {
       if (item.id === e.target.dataset.id) {
@@ -25,78 +30,33 @@ export default function EducationForm({ updateEduction, schools }) {
   }
 
   function handleAddSubject(e) {
-    const newArr = schools.map((item) => {
-      if (item.id === e.target.dataset.id) {
-        const newSubjectsArr = [...item.subjects];
-        newSubjectsArr.push(new Subject(item.id));
-        return { ...item, subjects: newSubjectsArr };
-      } else {
-        return item;
-      }
-    });
-    updateEduction(newArr);
-  }
+    const newSubject = new Subject(e.target.dataset.id);
+    const newSubjectArr = [...subjects];
+    newSubjectArr.push(newSubject);
+    updateSubjects([...newSubjectArr]);
 
-  // ********** TODO ******************
-  // the below does not work because i am passing in subject id rather than school id. for this update
-  // to work i need to add school id? feels messy, with nested loops.
-  function updateSubject(subjectId, key, value, parentId) {
     updateEduction(
-      schools.map((item) => {
-        if (item.id === parentId) {
-          return item.subjects.map((subject) => {
-            if (subject.id === subjectId) {
-              return { ...subject, [key]: value };
-            } else {
-              return subject;
-            }
-          });
-        } else {
-          return item;
+      schools.map((el) => {
+        if (el.id === e.target.dataset.id) {
+          const updatedArr = [...el.subjects];
+          updatedArr.push(newSubject.id);
+          return { ...el, subjects: [...updatedArr] };
         }
       }),
     );
-    console.log(schools);
   }
 
-  // function updateSubject(subjectId, key, value, parentId {
-  //   const newSchools = schools.map(school => {
-  //     if (school.id === parentId) {
-  //       school.subjects.map(subject => {
-  //         if (subject.id === subjectId) {
-  //           return {...subject, [key]: value}
-  //         } else {
-  //           return subject
-  //         }
-  //       })
-  //     } else {
-  //       return school
-  //     }
-  //   })
-
-  // })
-
-  // function deleteSubject(id) {
-  //   updateEduction(
-  //     schools.map(item => {
-  //       if(item.id == id) {
-  //         const newSubjectsArr =
-
-  //       }
-  //     })
-  //   )
-  // }
-
+  // WONT WORK, SCHOOL NOW JUST HOLDS SUBJECT ID INSTEAD OF OBJECT
   const Forms = schools.map((school) => {
-    const subjects = school.subjects.map((subject) => {
-      return (
-        <SubjectForm
-          parentId={school.id}
-          subject={subject}
-          updateSubject={updateSubject}
-        />
-      );
-    });
+    // const subjects = school.subjects.map((subject) => {
+    //   return (
+    //     <SubjectForm
+    //       parentId={school.id}
+    //       subject={subject}
+    //       updateSubjects={updateSubjects}
+    //     />
+    //   );
+    // });
 
     return (
       <div className="educationFormContainer">
@@ -141,7 +101,7 @@ export default function EducationForm({ updateEduction, schools }) {
             Delete
           </button>
         </form>
-        <>{subjects}</>
+        {/* <>{subjects}</> */}
         <button data-id={school.id} onClick={handleAddSubject}>
           Add Subject
         </button>

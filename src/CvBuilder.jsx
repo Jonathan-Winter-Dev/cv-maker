@@ -18,6 +18,7 @@ export default function CvBuilder() {
   const [profile, setProfile] = useState("");
   const [jobs, setJobs] = useState([]);
   const [education, setEducation] = useState([]);
+  const [subjects, setSubjects] = useState([]);
 
   function updateJobs(update) {
     setJobs(update);
@@ -35,6 +36,10 @@ export default function CvBuilder() {
     setProfile(profileData);
   }
 
+  function updateSubjects(subjectsData) {
+    setSubjects(subjectsData);
+  }
+
   return (
     <div className="cvBuilder">
       <div className="cvForms">
@@ -44,6 +49,8 @@ export default function CvBuilder() {
         <EducationForm
           updateEduction={updateEducation}
           schools={[...education]}
+          updateSubjects={updateSubjects}
+          subjects={[...subjects]}
         />
       </div>
 
