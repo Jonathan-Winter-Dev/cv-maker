@@ -13,7 +13,7 @@ export default function EducationCv({ education, subjects }) {
           {el.startDate.toString()} - {el.endDate.toString()}
         </p>
         <div className="subjectsContainer">
-          <SubjectsCv parentId={el.id} subjects={[...subjectsForDisplay]} />
+          <SubjectsCv subjects={[...subjectsForDisplay]} />
         </div>
       </div>
     );

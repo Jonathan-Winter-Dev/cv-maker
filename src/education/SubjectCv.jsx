@@ -1,4 +1,4 @@
-export default function SubjectsCv({ parentId, subjects }) {
+export default function SubjectsCv({ subjects }) {
   const subjectsDisplay = subjects.map((el) => {
     return (
       <li key={el.id}>
