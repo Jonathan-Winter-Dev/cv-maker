@@ -26,6 +26,7 @@ export default function CvBuilder() {
 
   function updateEducation(update) {
     setEducation(update);
+    console.log(education);
   }
 
   function updateContact(contactData) {
@@ -38,6 +39,7 @@ export default function CvBuilder() {
 
   function updateSubjects(subjectsData) {
     setSubjects(subjectsData);
+    console.log(subjects);
   }
 
   return (

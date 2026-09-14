@@ -37,7 +37,7 @@ export default function EducationForm({
 
     updateEduction(
       schools.map((el) => {
-        if (el.id === e.target.dataset.parentId) {
+        if (el.id === e.target.dataset.id) {
           const updatedArr = [...el.subjects];
           updatedArr.push(newSubject.id);
           return { ...el, subjects: [...updatedArr] };
@@ -59,7 +59,27 @@ export default function EducationForm({
     updateSubjects(newArr);
   }
 
-  // WONT WORK, SCHOOL NOW JUST HOLDS SUBJECT ID INSTEAD OF OBJECT
+  // TODO HANDLE SUBJECT DELETE. PROBABLY JUST FILTER OUT SUBJECTS ARR IN SCHOOLS AND THEN IN THE SUBJECTS STATE
+
+  function handleSubjectDelete(e) {
+    updateEduction(
+      schools.map((school) => {
+        if (school.id === e.target.dataset.parentId) {
+          const updatedArr = school.subjects.filter(
+            (subject) => subject.id !== e.target.dataset.id,
+          );
+          return { ...school, subjects: [...updatedArr] };
+        } else {
+          return school;
+        }
+      }),
+    );
+
+    updateSubjects(
+      subjects.filter((subject) => subject.id !== e.target.dataset.id),
+    );
+  }
+
   const Forms = schools.map((school) => {
     const subjectForms = subjects.map((subject) => {
       if (subject.parentId === school.id) {
@@ -68,6 +88,7 @@ export default function EducationForm({
             parentId={school.id}
             subject={subject}
             handleSubjectUpdate={handleSubjectUpdate}
+            handleSubjectDelete={handleSubjectDelete}
           />
         );
       }
