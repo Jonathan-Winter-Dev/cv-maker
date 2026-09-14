@@ -6,6 +6,7 @@ import ProfileCv from "./ProfileCv.jsx";
 import JobForm from "./employment/JobForm.jsx";
 import JobCv from "./employment/JobCv.jsx";
 import EducationForm from "./education/EducationForm.jsx";
+import EducationCv from "./education/EducationCv.jsx";
 
 export default function CvBuilder() {
   const [contact, setContact] = useState({
@@ -60,7 +61,7 @@ export default function CvBuilder() {
         <ContactCv contact={contact} />
         <ProfileCv profile={profile} />
         <JobCv jobs={[...jobs]} />
-        {/* <JobCv schools={[...education]} /> */}
+        <EducationCv education={[...education]} subjects={[...subjects]} />
       </div>
     </div>
   );
