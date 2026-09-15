@@ -59,8 +59,6 @@ export default function EducationForm({
     updateSubjects(newArr);
   }
 
-  // TODO HANDLE SUBJECT DELETE. PROBABLY JUST FILTER OUT SUBJECTS ARR IN SCHOOLS AND THEN IN THE SUBJECTS STATE
-
   function handleSubjectDelete(e) {
     updateEduction(
       schools.map((school) => {
