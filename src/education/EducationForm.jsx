@@ -95,42 +95,52 @@ export default function EducationForm({
     return (
       <div className="educationFormContainer">
         <form action="" onSubmit={(e) => e.preventDefault()} key={school.id}>
-          <label htmlFor="school">School</label>
-          <input
-            data-id={school.id}
-            type="text"
-            name="school"
-            id="school"
-            value={school.school}
-            onChange={handleChange}
-          />
-          <label htmlFor="location">Location</label>
-          <input
-            data-id={school.id}
-            type="text"
-            name="location"
-            id="location"
-            value={school.location}
-            onChange={handleChange}
-          />
-          <label htmlFor="startDate">Start Date</label>
-          <input
-            data-id={school.id}
-            type="date"
-            name="startDate"
-            id="startDate"
-            value={school.startDate}
-            onChange={handleChange}
-          />
-          <label htmlFor="endDate">End Date</label>
-          <input
-            data-id={school.id}
-            type="date"
-            name="endDate"
-            id="endDate"
-            value={school.endDate}
-            onChange={handleChange}
-          />
+          <fieldset>
+            <div className="fieldContainer">
+              <label htmlFor="school">School</label>
+              <input
+                data-id={school.id}
+                type="text"
+                name="school"
+                id="school"
+                value={school.school}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="fieldContainer">
+              <label htmlFor="location">Location</label>
+              <input
+                data-id={school.id}
+                type="text"
+                name="location"
+                id="location"
+                value={school.location}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="fieldContainer">
+              <label htmlFor="startDate">Start Date</label>
+              <input
+                data-id={school.id}
+                type="date"
+                name="startDate"
+                id="startDate"
+                value={school.startDate}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="fieldContainer">
+              <label htmlFor="endDate">End Date</label>
+              <input
+                data-id={school.id}
+                type="date"
+                name="endDate"
+                id="endDate"
+                value={school.endDate}
+                onChange={handleChange}
+              />
+            </div>
+          </fieldset>
           <button data-id={school.id} onClick={handleDelete}>
             Delete
           </button>
