@@ -21,7 +21,6 @@ export default function CvBuilder() {
   const [jobs, setJobs] = useState([]);
   const [education, setEducation] = useState([]);
   const [subjects, setSubjects] = useState([]);
-  const [isActive, setIsActive] = useState(true);
 
   function updateJobs(update) {
     setJobs(update);
@@ -45,26 +44,31 @@ export default function CvBuilder() {
     console.log(subjects);
   }
 
-  function updateActive(newActiveState) {
-    setIsActive(newActiveState);
-  }
-
   return (
     <div className="cvBuilder">
       <div className="cvForms">
         <Accordion
-          updateActive={updateActive}
-          isActive={isActive}
           title={"Contact"}
           content={<ContactForm updateContact={updateContact} />}
         />
-        <ProfileForm updateProfile={updateProfile} />
-        <JobForm updateJobs={updateJobs} jobs={[...jobs]} />
-        <EducationForm
-          updateEduction={updateEducation}
-          schools={[...education]}
-          updateSubjects={updateSubjects}
-          subjects={[...subjects]}
+        <Accordion
+          title={"Profile"}
+          content={<ProfileForm updateProfile={updateProfile} />}
+        />
+        <Accordion
+          title={"Employment"}
+          content={<JobForm updateJobs={updateJobs} jobs={[...jobs]} />}
+        />
+        <Accordion
+          title={"Education"}
+          content={
+            <EducationForm
+              updateEduction={updateEducation}
+              schools={[...education]}
+              updateSubjects={updateSubjects}
+              subjects={[...subjects]}
+            />
+          }
         />
       </div>
 

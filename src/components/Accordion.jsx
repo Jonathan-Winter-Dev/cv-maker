@@ -1,12 +1,16 @@
-export default function Accordion({ updateActive, isActive, title, content }) {
+import { useState } from "react";
+
+export default function Accordion({ title, content }) {
+  const [isActive, setIsActive] = useState(false);
+
   function handleUpdateActive() {
-    updateActive(!isActive);
+    setIsActive(!isActive);
   }
   return (
     <div className="accordion">
       <div className="accordionTitle" onClick={handleUpdateActive}>
         <h1>{title}</h1>
-        <div>{isActive ? "yes" : "no"}</div>
+        <div>{isActive ? "-" : "+"}</div>
       </div>
       {isActive && <div className="accordionContent">{content}</div>}
     </div>

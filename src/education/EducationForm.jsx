@@ -1,6 +1,7 @@
 import Education from "./Education";
 import SubjectForm from "./SubjectForm";
 import Subject from "./Subject";
+import Accordion from "../components/Accordion";
 
 export default function EducationForm({
   updateEduction,
@@ -82,74 +83,88 @@ export default function EducationForm({
     const subjectForms = subjects.map((subject) => {
       if (subject.parentId === school.id) {
         return (
-          <SubjectForm
-            parentId={school.id}
-            subject={subject}
-            handleSubjectUpdate={handleSubjectUpdate}
-            handleSubjectDelete={handleSubjectDelete}
+          <Accordion
+            title={subject.subject.length ? subject.subject : "New Subject"}
+            content={
+              <SubjectForm
+                parentId={school.id}
+                subject={subject}
+                handleSubjectUpdate={handleSubjectUpdate}
+                handleSubjectDelete={handleSubjectDelete}
+              />
+            }
           />
         );
       }
     });
 
     return (
-      <div className="educationFormContainer">
-        <form action="" onSubmit={(e) => e.preventDefault()} key={school.id}>
-          <fieldset>
-            <div className="fieldContainer">
-              <label htmlFor="school">School</label>
-              <input
-                data-id={school.id}
-                type="text"
-                name="school"
-                id="school"
-                value={school.school}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="fieldContainer">
-              <label htmlFor="location">Location</label>
-              <input
-                data-id={school.id}
-                type="text"
-                name="location"
-                id="location"
-                value={school.location}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="fieldContainer">
-              <label htmlFor="startDate">Start Date</label>
-              <input
-                data-id={school.id}
-                type="date"
-                name="startDate"
-                id="startDate"
-                value={school.startDate}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="fieldContainer">
-              <label htmlFor="endDate">End Date</label>
-              <input
-                data-id={school.id}
-                type="date"
-                name="endDate"
-                id="endDate"
-                value={school.endDate}
-                onChange={handleChange}
-              />
-            </div>
-          </fieldset>
-          <button data-id={school.id} onClick={handleDelete}>
-            Delete
-          </button>
-        </form>
-        {subjectForms}
-        <button data-id={school.id} onClick={handleAddSubject}>
-          Add Subject
-        </button>
-      </div>
+      <Accordion
+        title={school.school.length ? school.school : "New School"}
+        content={
+          <div className="educationFormContainer">
+            <form
+              action=""
+              onSubmit={(e) => e.preventDefault()}
+              key={school.id}
+            >
+              <fieldset>
+                <div className="fieldContainer">
+                  <label htmlFor="school">School</label>
+                  <input
+                    data-id={school.id}
+                    type="text"
+                    name="school"
+                    id="school"
+                    value={school.school}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="fieldContainer">
+                  <label htmlFor="location">Location</label>
+                  <input
+                    data-id={school.id}
+                    type="text"
+                    name="location"
+                    id="location"
+                    value={school.location}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="fieldContainer">
+                  <label htmlFor="startDate">Start Date</label>
+                  <input
+                    data-id={school.id}
+                    type="date"
+                    name="startDate"
+                    id="startDate"
+                    value={school.startDate}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="fieldContainer">
+                  <label htmlFor="endDate">End Date</label>
+                  <input
+                    data-id={school.id}
+                    type="date"
+                    name="endDate"
+                    id="endDate"
+                    value={school.endDate}
+                    onChange={handleChange}
+                  />
+                </div>
+              </fieldset>
+              <button data-id={school.id} onClick={handleDelete}>
+                Delete
+              </button>
+            </form>
+            {subjectForms}
+            <button data-id={school.id} onClick={handleAddSubject}>
+              Add Subject
+            </button>
+          </div>
+        }
+      />
     );
   });
 
