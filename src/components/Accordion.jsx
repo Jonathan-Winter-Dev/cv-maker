@@ -9,6 +9,7 @@ export default function Accordion({ title, content }) {
     parent.classList.toggle("accordionVisible");
 
     parent.querySelector(".accordionContent").classList.toggle("visible");
+    parent.querySelector(".accordionTitle").classList.toggle("visible");
   }
   return (
     <div className={`accordion ${isActive ? "accordionVisible" : ""}`}>

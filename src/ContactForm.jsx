@@ -16,7 +16,6 @@ export default function ContactForm({ updateContact }) {
 
   return (
     <form onSubmit={handleSubmit} id="contactForm">
-      <h2>Contact Information</h2>
       <fieldset>
         <div className="fieldContainer">
           <label for="fName">First Name:</label>
@@ -35,7 +34,9 @@ export default function ContactForm({ updateContact }) {
           <input type="tel" name="phone" id="phone" />
         </div>
       </fieldset>
-      <input type="submit" />
+      <div className="formButtonsContainer">
+        <input type="submit" />
+      </div>
     </form>
   );
 }
