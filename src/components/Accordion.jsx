@@ -18,35 +18,34 @@ export default function Accordion({ title, content }) {
         <div className="accordionVisibilitySymbol">
           <svg
             className={`verticalBar ${isActive ? "accordionVisible" : ""}`}
-            xmlns="http://w3.org"
-            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 28"
             width="24"
             height="24"
           >
             <rect
-              x="11"
-              y="2"
-              width="2"
-              height="20"
-              rx="1"
-              ry="1"
+              x="10.5"
+              y="2.5"
+              width="3"
+              height="23"
+              rx="1.5"
               fill="currentColor"
             />
           </svg>
+
           <svg
             className={`horizontalBar ${isActive ? "accordionVisible" : ""}`}
-            xmlns="http://w3.org"
-            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 28"
             width="24"
             height="24"
           >
             <rect
-              x="11"
-              y="2"
-              width="2"
-              height="20"
-              rx="1"
-              ry="1"
+              x="10.5"
+              y="2.5"
+              width="3"
+              height="23"
+              rx="1.5"
               fill="currentColor"
             />
           </svg>

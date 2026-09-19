@@ -436,12 +436,19 @@ template {
   display: grid;
 }
 
+.accordionVisibilitySymbol {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
 .verticalBar {
   position: absolute;
   transition: all 0.3s ease;
 }
 
 .horizontalBar {
+  /* position: absolute; */
   transform: rotate(90deg);
   transition: all 0.3s ease;
 }
