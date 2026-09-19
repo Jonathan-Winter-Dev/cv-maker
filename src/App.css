@@ -436,6 +436,19 @@ template {
   display: grid;
 }
 
+.verticalBar {
+  position: absolute;
+  color: red;
+}
+
+.horizontalBar {
+  transform: rotate(90deg);
+}
+
+.verticalBar.accordionVisible {
+  transform: rotate(90deg);
+}
+
 button,
 input[type="submit"] {
   border: solid 1px black;
