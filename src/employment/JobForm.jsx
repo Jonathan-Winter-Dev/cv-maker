@@ -29,7 +29,6 @@ export default function JobForm({ updateJobs, jobs }) {
         title={job.title.length ? job.title : "New Job"}
         content={
           <form onSubmit={(e) => e.preventDefault()} key={job.id}>
-            <h2>{job.title.length ? job.title : "Untitled"}</h2>
             <fieldset>
               <div className="fieldContainer">
                 <label htmlFor="employer">Employer</label>
@@ -97,9 +96,16 @@ export default function JobForm({ updateJobs, jobs }) {
                 ></textarea>
               </div>
             </fieldset>
-            <button data-id={job.id} onClick={handleDelete}>
-              Delete Job
-            </button>
+            <div className="formButtonsContainer">
+              {" "}
+              <button
+                data-id={job.id}
+                onClick={handleDelete}
+                className="deleteButton"
+              >
+                Delete Job
+              </button>
+            </div>
           </form>
         }
       />
@@ -108,7 +114,9 @@ export default function JobForm({ updateJobs, jobs }) {
 
   return (
     <div className="employmentFormsContainer">
-      <button onClick={handleAddJob}>Add Job</button>
+      <div className="addButtonContainer">
+        <button onClick={handleAddJob}>Add Job</button>
+      </div>
       {Forms}
     </div>
   );

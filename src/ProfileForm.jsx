@@ -8,14 +8,15 @@ export default function ProfileForm({ updateProfile }) {
 
   return (
     <form onSubmit={handleSubmit} id="profileForm">
-      <h2>Profile</h2>
       <fieldset>
         <div className="fieldContainer">
           <label for="profileText">Profile Text:</label>
           <textarea id="profileText" name="profileText" rows="5" />
         </div>
       </fieldset>
-      <input type="submit" />
+      <div className="formButtonsContainer">
+        <input type="submit" />
+      </div>
     </form>
   );
 }
