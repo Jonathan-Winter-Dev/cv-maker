@@ -34,7 +34,7 @@ export default function Accordion({ title, content }) {
             />
           </svg>
           <svg
-            className="horizontalBar"
+            className={`horizontalBar ${isActive ? "accordionVisible" : ""}`}
             xmlns="http://w3.org"
             viewBox="0 0 24 24"
             width="24"
