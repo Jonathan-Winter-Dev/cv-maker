@@ -35,7 +35,7 @@ export default function ContactForm({ updateContact }) {
         </div>
       </fieldset>
       <div className="formButtonsContainer">
-        <input type="submit" />
+        <input type="submit" className="primaryButton" />
       </div>
     </form>
   );
