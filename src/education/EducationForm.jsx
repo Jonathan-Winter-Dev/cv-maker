@@ -83,17 +83,17 @@ export default function EducationForm({
     const subjectForms = subjects.map((subject) => {
       if (subject.parentId === school.id) {
         return (
-          <Accordion
-            title={subject.subject.length ? subject.subject : "New Subject"}
-            content={
-              <SubjectForm
-                parentId={school.id}
-                subject={subject}
-                handleSubjectUpdate={handleSubjectUpdate}
-                handleSubjectDelete={handleSubjectDelete}
-              />
-            }
+          // <Accordion
+          //   title={subject.subject.length ? subject.subject : "New Subject"}
+          //   content={
+          <SubjectForm
+            parentId={school.id}
+            subject={subject}
+            handleSubjectUpdate={handleSubjectUpdate}
+            handleSubjectDelete={handleSubjectDelete}
           />
+          //   }
+          // />
         );
       }
     });
@@ -154,14 +154,20 @@ export default function EducationForm({
                   />
                 </div>
               </fieldset>
-              <button data-id={school.id} onClick={handleDelete}>
-                Delete
-              </button>
             </form>
+            <div className="formButtonsContainer education">
+              <button data-id={school.id} onClick={handleAddSubject}>
+                Add Subject
+              </button>
+              <button
+                className="deleteButton"
+                data-id={school.id}
+                onClick={handleDelete}
+              >
+                Delete School
+              </button>
+            </div>
             {subjectForms}
-            <button data-id={school.id} onClick={handleAddSubject}>
-              Add Subject
-            </button>
           </div>
         }
       />
@@ -170,8 +176,10 @@ export default function EducationForm({
 
   return (
     <div className="educationFormsContainer">
+      <div className="addButtonContainer">
+        <button onClick={handleAddSchool}>Add Education</button>
+      </div>
       {Forms}
-      <button onClick={handleAddSchool}>Add Education</button>
     </div>
   );
 }

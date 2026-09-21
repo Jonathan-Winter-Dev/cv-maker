@@ -645,6 +645,10 @@ form h2 {
   justify-content: start;
 }
 
+.formButtonsContainer.education {
+  justify-content: space-between;
+}
+
 textarea {
   overflow: auto;
   resize: vertical;

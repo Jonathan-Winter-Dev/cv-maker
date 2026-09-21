@@ -33,13 +33,16 @@ export default function SubjectForm({
           </div>
         </fieldset>
       </form>
-      <button
-        data-parent-id={subject.parentId}
-        data-id={subject.id}
-        onClick={handleSubjectDelete}
-      >
-        Delete Subject
-      </button>
+      <div className="formButtonsContainer">
+        <button
+          data-parent-id={subject.parentId}
+          data-id={subject.id}
+          onClick={handleSubjectDelete}
+          className="deleteButton"
+        >
+          Delete Subject
+        </button>
+      </div>
     </div>
   );
 }
