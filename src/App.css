@@ -389,6 +389,8 @@ template {
 }
 
 .cvPage {
+  /* aspect ratio of an a4 piece of paper */
+  aspect-ratio: 210 / 297;
   background-color: white;
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -466,7 +468,7 @@ template {
   background-color: white;
   grid-template-rows: min-content 0fr;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  border-radius: 20px;
+  border-radius: 30px;
   transition: all 0.4s ease;
 }
 
@@ -476,7 +478,11 @@ template {
   justify-content: space-between;
   align-items: center;
   padding: 1em;
-  border-radius: 20px;
+  border-radius: calc(30px - 1em);
+}
+
+.accordion .accordion {
+  border-radius: calc(30px - 1em);
 }
 
 .accordion .accordion:last-child {
