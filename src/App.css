@@ -405,6 +405,14 @@ template {
   border-radius: 20px;
 }
 
+.accordion .accordion:last-child {
+  margin-bottom: 1em;
+}
+
+.accordion .accordion h1 {
+  font-size: 1.5em;
+}
+
 .accordionTitle.visible {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -443,13 +451,17 @@ template {
 }
 
 .verticalBar {
-  position: absolute;
-  transition: all 0.3s ease;
+  grid-row: 1/2;
+  grid-column: 1/2;
+  transition: transform 0.3s ease;
+  animation-duration: 0.1s;
 }
 
 .horizontalBar {
+  grid-row: 1/2;
+  grid-column: 1/2;
   transform: rotate(90deg);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .horizontalBar.accordionVisible {
