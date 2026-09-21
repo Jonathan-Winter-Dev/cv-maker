@@ -1,12 +1,13 @@
 export default function ContactCv({ contact }) {
   return (
     <div className="contact">
-      <h2>Contact</h2>
-      <p>
+      <h1>
         {contact.fName} {contact.lName}
-      </p>
-      <p>{contact.email}</p>
-      <p>{contact.phone}</p>
+      </h1>
+      <div className="contactDetails">
+        <p>{contact.email.length ? `Email: ${contact.email}` : ``}</p>
+        <p>{contact.phone.length ? `Phone Number: ${contact.phone}` : ``}</p>
+      </div>
     </div>
   );
 }
