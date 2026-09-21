@@ -10,10 +10,15 @@ export default function JobCv({ jobs }) {
             {job.startDate.toString()} - {job.endDate.toString()}
           </p>
         </div>
-        <p>{job.description}</p>
+        <p className="jobDescription">{job.description}</p>
       </div>
     );
   });
 
-  return <div className="employmentContainer">{jobsDisplay}</div>;
+  return (
+    <div className="employmentContainer">
+      <h2>Employment History</h2>
+      {jobsDisplay}
+    </div>
+  );
 }
