@@ -113,11 +113,11 @@ export default function JobForm({ updateJobs, jobs }) {
   });
 
   return (
-    <div className="employmentFormsContainer">
+    <>
       <div className="addButtonContainer">
         <button onClick={handleAddJob}>Add Job</button>
       </div>
       {Forms}
-    </div>
+    </>
   );
 }

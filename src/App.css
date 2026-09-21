@@ -362,7 +362,14 @@ template {
   --focus-color: #ffd97d;
   --light-green: #aaf683;
   --sweet-salmon: #f5e6e2;
-  --form-background: #e1ecf7;
+  --pink-background: #e1ecf7;
+  --blue-background: #b8d8f0;
+  --yellow-background: #f9e6a8;
+  --yellow-background: #f9e6a8;
+  --peach-background: #f7e2d3;
+  --peach-hover: #f7cfb2;
+  --teal-background: #b8dfdc;
+  --green-background: #c4e8c1;
   --border-radius-input-button: 8px;
   background-image: linear-gradient(
     to bottom right,
@@ -411,6 +418,16 @@ template {
 
 .accordion .accordion h1 {
   font-size: 1.5em;
+}
+
+.accordionContent .accordion:nth-child(5n + 1 of .accordion) {
+  background-color: var(--peach-background);
+}
+
+.accordionContent
+  .accordion.accordion:nth-child(5n + 1 of .accordion)
+  .accordionTitle:hover {
+  background-color: var(--peach-hover);
 }
 
 .accordionTitle.visible {
@@ -509,17 +526,7 @@ input[type="submit"] {
     rgba(44, 187, 99, 0.15) 0 16px 32px;
 }
 
-.button:hover,
-input[type="submit"]:hover {
-  box-shadow:
-    rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
-    rgba(44, 187, 99, 0.25) 0 1px 2px,
-    rgba(44, 187, 99, 0.25) 0 2px 4px,
-    rgba(44, 187, 99, 0.25) 0 4px 8px,
-    rgba(44, 187, 99, 0.25) 0 8px 16px,
-    rgba(44, 187, 99, 0.25) 0 16px 32px;
-  transform: scale(1.05);
-}
+button:hover,
 input[type="submit"]:hover {
   box-shadow:
     rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
@@ -604,7 +611,7 @@ textarea {
 textarea {
   border-radius: var(--border-radius-input-button);
   border: none;
-  background-color: var(--form-background);
+  background-color: var(--pink-background);
   font-size: 1em;
   transition: all 0.1s;
   padding: 7px 7px;
