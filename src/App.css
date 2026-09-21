@@ -383,7 +383,7 @@ template {
 
 .cvBuilder {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   gap: 3em;
   border: none;
 }
@@ -541,6 +541,7 @@ input[type="submit"] {
   font-size: 1em;
   transition: all 0.1s;
   padding: 7px 20px;
+  text-wrap: nowrap;
   box-shadow:
     rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
     rgba(44, 187, 99, 0.15) 0 1px 2px,
@@ -633,6 +634,30 @@ form h2 {
   flex-direction: column;
 }
 
+.cvForms .subjectForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+.subjectContainer {
+  padding: 0 0 1em 0;
+  margin: 1em 1em 0 1em;
+  border-bottom: 1px solid black;
+}
+
+.subjectContainer:last-child {
+  border: none;
+}
+
+.cvForms .subjectForm fieldset {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .formButtonsContainer,
 .addButtonContainer {
   display: flex;
@@ -647,6 +672,7 @@ form h2 {
 
 .formButtonsContainer.education {
   justify-content: space-between;
+  padding: 1em;
 }
 
 textarea {

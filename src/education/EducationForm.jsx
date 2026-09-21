@@ -83,17 +83,12 @@ export default function EducationForm({
     const subjectForms = subjects.map((subject) => {
       if (subject.parentId === school.id) {
         return (
-          // <Accordion
-          //   title={subject.subject.length ? subject.subject : "New Subject"}
-          //   content={
           <SubjectForm
             parentId={school.id}
             subject={subject}
             handleSubjectUpdate={handleSubjectUpdate}
             handleSubjectDelete={handleSubjectDelete}
           />
-          //   }
-          // />
         );
       }
     });
@@ -167,7 +162,7 @@ export default function EducationForm({
                 Delete School
               </button>
             </div>
-            {subjectForms}
+            <div className="subjectFormsContainer">{subjectForms}</div>
           </div>
         }
       />

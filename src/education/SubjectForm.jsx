@@ -5,7 +5,12 @@ export default function SubjectForm({
 }) {
   return (
     <div className="subjectContainer">
-      <form key={subject.id} action="" onSubmit={(e) => e.preventDefault()}>
+      <form
+        key={subject.id}
+        action=""
+        onSubmit={(e) => e.preventDefault()}
+        className="subjectForm"
+      >
         <fieldset>
           <div className="fieldContainer">
             <label htmlFor="name">Subject</label>
@@ -32,8 +37,6 @@ export default function SubjectForm({
             />
           </div>
         </fieldset>
-      </form>
-      <div className="formButtonsContainer">
         <button
           data-parent-id={subject.parentId}
           data-id={subject.id}
@@ -42,7 +45,7 @@ export default function SubjectForm({
         >
           Delete Subject
         </button>
-      </div>
+      </form>
     </div>
   );
 }
