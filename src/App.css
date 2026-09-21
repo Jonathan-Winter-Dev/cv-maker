@@ -478,10 +478,11 @@ template {
   justify-content: space-between;
   align-items: center;
   padding: 1em;
-  border-radius: calc(30px - 1em);
+  border-radius: 30px;
 }
 
-.accordion .accordion {
+.accordion .accordion,
+.accordion .accordion .accordionTitle {
   border-radius: calc(30px - 1em);
 }
 
@@ -683,7 +684,7 @@ form h2 {
 }
 
 .cvForms form {
-  padding: 1em;
+  padding: 0;
 }
 
 .cvForms fieldset {
