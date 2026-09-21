@@ -364,12 +364,15 @@ template {
   --sweet-salmon: #f5e6e2;
   --pink-background: #e1ecf7;
   --blue-background: #b8d8f0;
-  --yellow-background: #f9e6a8;
-  --yellow-background: #f9e6a8;
+  --blue-background-hover: #99cdf5;
+  --yellow-background: #f7e9b9;
+  --yellow-background-hover: #f7de8c;
   --peach-background: #f7e2d3;
   --peach-hover: #f7cfb2;
   --teal-background: #b8dfdc;
+  --teal-background-hover: #94d6d1;
   --green-background: #c4e8c1;
+  --green-background-hover: #a2dc9d;
   --border-radius-input-button: 8px;
   background-image: linear-gradient(
     to bottom right,
@@ -428,6 +431,46 @@ template {
   .accordion.accordion:nth-child(5n + 1 of .accordion)
   .accordionTitle:hover {
   background-color: var(--peach-hover);
+}
+
+.accordionContent .accordion:nth-child(5n + 2 of .accordion) {
+  background-color: var(--yellow-background);
+}
+
+.accordionContent
+  .accordion.accordion:nth-child(5n + 2 of .accordion)
+  .accordionTitle:hover {
+  background-color: var(--yellow-background-hover);
+}
+
+.accordionContent .accordion:nth-child(5n + 3 of .accordion) {
+  background-color: var(--blue-background);
+}
+
+.accordionContent
+  .accordion.accordion:nth-child(5n + 3 of .accordion)
+  .accordionTitle:hover {
+  background-color: var(--blue-background-hover);
+}
+
+.accordionContent .accordion:nth-child(5n + 4 of .accordion) {
+  background-color: var(--green-background);
+}
+
+.accordionContent
+  .accordion.accordion:nth-child(5n + 4 of .accordion)
+  .accordionTitle:hover {
+  background-color: var(--green-background-hover);
+}
+
+.accordionContent .accordion:nth-child(5n + 5 of .accordion) {
+  background-color: var(--teal-background);
+}
+
+.accordionContent
+  .accordion.accordion:nth-child(5n + 5 of .accordion)
+  .accordionTitle:hover {
+  background-color: var(--teal-background-hover);
 }
 
 .accordionTitle.visible {
