@@ -3,8 +3,8 @@ export default class Job {
     this.employer = employer ?? "Untitled";
     this.title = title ?? "";
     this.location = location ?? "";
-    this.startDate = startDate ?? new Date();
-    this.endDate = endDate ?? new Date();
+    this.startDate = startDate ?? "";
+    this.endDate = endDate ?? "";
     this.description = description ?? "";
     this.id = id ?? crypto.randomUUID();
   }
