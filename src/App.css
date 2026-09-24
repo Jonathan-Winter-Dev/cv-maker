@@ -374,11 +374,11 @@ template {
   --green-background-hover: #a2dc9d;
   --border-radius-input-button: 8px;
 
-  --cv-h1: 2em;
-  --cv-h2: 1.4em;
-  --cv-h3: 1.2em;
-  --cv-h4: 1em;
-  --cv-p: 0.7em;
+  --cv-h1: 6cqw;
+  --cv-h2: 1.4cqw;
+  --cv-h3: 3cqw;
+  --cv-h4: 2.5cqw;
+  --cv-p: 1.5cqw;
 
   min-height: 1vw;
   background-image: linear-gradient(
@@ -492,102 +492,6 @@ template {
   display: grid;
   gap: 0.5em;
   grid-template-columns: 1fr 2fr;
-}
-
-@container (width < 700px) {
-  .cvPage h1 {
-    color: red;
-    font-size: calc(var(--cv-h1) * 0.8);
-  }
-
-  .cvPage h2 {
-    font-size: calc(var(--cv-h2) * 0.8);
-  }
-
-  .cvPage h3 {
-    font-size: calc(var(--cv-h3) * 0.8);
-  }
-
-  .cvPage h4 {
-    font-size: calc(var(--cv-h4) * 0.8);
-  }
-
-  .cvPage p,
-  .cvPage li {
-    font-size: calc(var(--cv-p) * 0.8);
-  }
-}
-
-@container (width < 600px) {
-  .cvPage h1 {
-    color: red;
-    font-size: calc(var(--cv-h1) * 0.7);
-  }
-
-  .cvPage h2 {
-    font-size: calc(var(--cv-h2) * 0.7);
-  }
-
-  .cvPage h3 {
-    font-size: calc(var(--cv-h3) * 0.7);
-  }
-
-  .cvPage h4 {
-    font-size: calc(var(--cv-h4) * 0.7);
-  }
-
-  .cvPage p,
-  .cvPage li {
-    font-size: calc(var(--cv-p) * 0.7);
-  }
-}
-
-@container (width < 500px) {
-  .cvPage h1 {
-    color: red;
-    font-size: calc(var(--cv-h1) * 0.6);
-  }
-
-  .cvPage h2 {
-    font-size: calc(var(--cv-h2) * 0.6);
-  }
-
-  .cvPage h3 {
-    font-size: calc(var(--cv-h3) * 0.6);
-  }
-
-  .cvPage h4 {
-    font-size: calc(var(--cv-h4) * 0.6);
-  }
-
-  .cvPage p,
-  .cvPage li {
-    font-size: calc(var(--cv-p) * 0.6);
-  }
-}
-
-@container (width < 500px) {
-  .cvPage h1 {
-    color: red;
-    font-size: calc(var(--cv-h1) * 0.5);
-  }
-
-  .cvPage h2 {
-    font-size: calc(var(--cv-h2) * 0.5);
-  }
-
-  .cvPage h3 {
-    font-size: calc(var(--cv-h3) * 0.5);
-  }
-
-  .cvPage h4 {
-    font-size: calc(var(--cv-h4) * 0.5);
-  }
-
-  .cvPage p,
-  .cvPage li {
-    font-size: calc(var(--cv-p) * 0.5);
-  }
 }
 
 .accordion {
