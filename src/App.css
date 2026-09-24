@@ -353,7 +353,7 @@ template {
 /* END CSS NORMALIZE */
 
 :root {
-  height: 100%;
+  min-height: 1vw;
   font-family: Arial, Helvetica, sans-serif;
   --delete-color: #ee6055;
   --delete-color-hover: #da5046;
@@ -383,17 +383,29 @@ template {
 
 .cvBuilder {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(650px, 1fr));
   gap: 3em;
   border: none;
+  padding: 1em;
 }
 
 .cvPage {
   /* aspect ratio of an a4 piece of paper */
+  max-width: 600px;
+  width: 100%;
+  overflow: hidden;
   aspect-ratio: 210 / 297;
   background-color: white;
   display: grid;
   grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1.2fr 3fr 2fr;
+  margin: 2em 1em 1em 1em;
+  padding: 1em;
+  container-type: inline-size;
+}
+
+.cvPage * {
+  font-size: 1em;
 }
 
 .cvPage h1,
@@ -421,7 +433,7 @@ template {
   grid-column: 1/2;
   padding: 0;
   margin: 0;
-  font-size: 3em;
+  font-size: 1vw;
 }
 
 .cvPage .contact .contactDetails {
@@ -460,6 +472,12 @@ template {
   flex-direction: column;
   gap: 5px;
   grid-column: 1/2;
+}
+
+@container (width < 600px) {
+  .profileContainer h2 {
+    color: red;
+  }
 }
 
 .accordion {
@@ -765,4 +783,9 @@ textarea {
 .cvForms textarea:focus {
   transform: scale(1.05);
   outline: 3px solid var(--focus-color);
+}
+
+@media (width <= 1200px) {
+  .cvBuilder {
+  }
 }
