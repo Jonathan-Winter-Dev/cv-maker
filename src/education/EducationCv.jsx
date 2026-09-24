@@ -7,11 +7,13 @@ export default function EducationCv({ education, subjects }) {
     );
     return (
       <div className="educationCvContainer" key={el.id}>
-        <h2>{el.school}</h2>
-        <h3>{el.location}</h3>
-        <p>
-          {el.startDate.toString()} - {el.endDate.toString()}
-        </p>
+        <div className="educationDetailsContainer">
+          <h2>{el.school}</h2>
+          <h3>{el.location}</h3>
+          <p>
+            {el.startDate.toString()} - {el.endDate.toString()}
+          </p>
+        </div>
         <div className="subjectsContainer">
           <SubjectsCv subjects={[...subjectsForDisplay]} />
         </div>
