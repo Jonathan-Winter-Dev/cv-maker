@@ -1,4 +1,5 @@
 import SubjectsCv from "./SubjectCv";
+import { inputDateToString } from "../utils";
 
 export default function EducationCv({ education, subjects }) {
   const educationDisplay = education.map((el) => {
@@ -11,7 +12,7 @@ export default function EducationCv({ education, subjects }) {
           <h2>{el.school}</h2>
           <h3>{el.location}</h3>
           <p>
-            {el.startDate.toString()} - {el.endDate.toString()}
+            {inputDateToString(el.startDate)} - {inputDateToString(el.endDate)}
           </p>
         </div>
         <div className="subjectsContainer">

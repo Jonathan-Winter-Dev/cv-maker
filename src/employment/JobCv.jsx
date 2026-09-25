@@ -1,3 +1,5 @@
+import { inputDateToString } from "../utils";
+
 export default function JobCv({ jobs }) {
   const jobsDisplay = jobs.map((job) => {
     return (
@@ -7,7 +9,8 @@ export default function JobCv({ jobs }) {
           <h3>{job.employer}</h3>
           <h4>{job.location}</h4>
           <p>
-            {job.startDate.toString()} - {job.endDate.toString()}
+            {inputDateToString(job.startDate)} -{" "}
+            {inputDateToString(job.endDate)}
           </p>
         </div>
         <p className="jobDescription">{job.description}</p>

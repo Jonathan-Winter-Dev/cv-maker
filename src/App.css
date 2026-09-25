@@ -385,7 +385,6 @@ template {
 .cvBuilder {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-  gap: 3em;
   border: none;
   padding: 1em;
 }
@@ -397,7 +396,6 @@ template {
   --cv-h4: 2cqw;
   --cv-p: 1.5cqw;
 
-  max-width: 800px;
   overflow: hidden;
   /* aspect ratio of an a4 piece of paper */
   aspect-ratio: 210 / 297;
@@ -474,10 +472,12 @@ template {
 }
 
 .cvPage .jobCvContainer,
-.cvPage .educationContainer {
+.cvPage .educationCvContainer {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 0;
+  margin: 1cqw 0 0 0;
+  align-items: center;
 }
 
 .cvPage .jobCvContainer .jobDetailsContainer {
