@@ -85,7 +85,7 @@ export default function JobForm({ updateJobs, jobs }) {
                   onChange={handleChange}
                 />
               </div>
-              <div className="fieldContainer">
+              <div className="fieldContainer textArea">
                 <label htmlFor="description">Description</label>
                 <textarea
                   data-id={job.id}

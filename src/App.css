@@ -775,7 +775,10 @@ form h2 {
 
 .formButtonsContainer.education {
   justify-content: space-between;
-  padding: 1em;
+}
+
+.cvForms .textArea {
+  grid-column: 1/-1;
 }
 
 textarea {
