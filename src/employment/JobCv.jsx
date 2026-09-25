@@ -17,7 +17,7 @@ export default function JobCv({ jobs }) {
 
   return (
     <div className="employmentContainer">
-      <h2>Employment History</h2>
+      <h2 className="sectionTitle">Employment History</h2>
       {jobsDisplay}
     </div>
   );

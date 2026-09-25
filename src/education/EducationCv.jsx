@@ -23,7 +23,7 @@ export default function EducationCv({ education, subjects }) {
 
   return (
     <div className="educationContainer">
-      <h2>Education</h2>
+      <h2 className="sectionTitle">Education</h2>
       {educationDisplay}
     </div>
   );

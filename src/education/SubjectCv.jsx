@@ -2,7 +2,7 @@ export default function SubjectsCv({ subjects }) {
   const subjectsDisplay = subjects.map((el) => {
     return (
       <li key={el.id}>
-        {el.subject} - {el.grade}
+        <b>{el.subject}:</b> {el.grade}
       </li>
     );
   });

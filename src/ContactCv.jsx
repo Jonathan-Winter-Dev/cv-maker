@@ -5,8 +5,12 @@ export default function ContactCv({ contact }) {
         {contact.fName} {contact.lName}
       </h1>
       <div className="contactDetails">
-        <p>{contact.email.length ? `Email: ${contact.email}` : ``}</p>
-        <p>{contact.phone.length ? `Phone Number: ${contact.phone}` : ``}</p>
+        <b>
+          <p>{contact.email.length ? `Email: ${contact.email}` : ``}</p>
+        </b>
+        <b>
+          <p>{contact.phone.length ? `Phone Number: ${contact.phone}` : ``}</p>
+        </b>
       </div>
     </div>
   );
