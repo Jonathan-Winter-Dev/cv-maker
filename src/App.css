@@ -392,6 +392,7 @@ header {
   padding: 1em 2em;
   background-color: var(--peach-background);
   box-shadow: var(--shadow);
+  z-index: 1;
 }
 
 header * {
@@ -423,13 +424,13 @@ header * {
   margin: 2em 1em 1em 1em;
   padding: 3cqw;
   container-type: inline-size;
-  /* box-shadow: var(--shadow); */
+  box-shadow: var(--shadow);
 }
 
-/* .cvPage.saving {
+.cvPage.saving {
   box-shadow: none;
   margin: 0;
-} */
+}
 
 .cvPage h1,
 .cvPage h2,
