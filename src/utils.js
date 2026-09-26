@@ -16,7 +16,7 @@ const MONTHS = [
 ];
 
 export function inputDateToString(inputDate) {
-  console.log(inputDate);
+  if (!inputDate) return "";
 
   const monthIndex = Number(inputDate.slice(5, 7)) - 1;
 

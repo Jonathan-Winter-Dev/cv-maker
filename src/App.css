@@ -880,6 +880,9 @@ textarea {
   .cvForms {
     margin: 0.3em;
   }
+  fieldset {
+    margin: 0;
+  }
 
   .cvPage {
     --cv-h1: 2rem;
@@ -895,16 +898,16 @@ textarea {
   .cvPage .educationCvContainer {
     margin: 1em 0;
   }
+
+  .accordionContent.visible {
+    padding: 3px;
+    margin: 0 8px;
+  }
 }
 
 @media (380px >= width) {
   .accordion > .accordion {
     padding: 0 8px;
-  }
-
-  .accordionContent.visible {
-    padding: 8px;
-    margin: 0 8px;
   }
 
   .subjectContainer {
