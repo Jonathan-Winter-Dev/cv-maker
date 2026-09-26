@@ -2,7 +2,7 @@ export default function ContactCv({ contact }) {
   return (
     <div className="contact">
       <h1>
-        {contact.fName} {contact.lName}
+        {contact.fName.length ? contact.fName : "Your Name"} {contact.lName}
       </h1>
       <div className="contactDetails">
         <b>

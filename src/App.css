@@ -372,6 +372,7 @@ template {
   --teal-background-hover: #94d6d1;
   --green-background: #c4e8c1;
   --green-background-hover: #a2dc9d;
+  --header-color: #314258;
   --border-radius-input-button: 8px;
   --shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
@@ -384,13 +385,14 @@ template {
 }
 
 header {
+  color: white;
   position: sticky;
   top: 0;
   grid-column: 1/-1;
   display: flex;
   justify-content: space-between;
   padding: 1em 2em;
-  background-color: var(--peach-background);
+  background-color: var(--header-color);
   box-shadow: var(--shadow);
   z-index: 1;
 }
