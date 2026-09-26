@@ -25,6 +25,14 @@ export function inputDateToString(inputDate) {
   return `${MONTHS[monthIndex]} ${inputDate.slice(0, 4)}`;
 }
 
-export function saveElementAsPdf(element) {
-  html2pdf(element);
+export async function saveElementAsPdf(element) {
+  element.classList.toggle("saving");
+
+  const options = {
+    filename: "newCv.pdf",
+    pagebreak: { mode: "avoid-all" },
+  };
+  await html2pdf().set(options).from(element).save();
+
+  element.classList.toggle("saving");
 }

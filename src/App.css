@@ -373,6 +373,7 @@ template {
   --green-background: #c4e8c1;
   --green-background-hover: #a2dc9d;
   --border-radius-input-button: 8px;
+  --shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
   min-height: 1vw;
   background-image: linear-gradient(
@@ -380,6 +381,22 @@ template {
     var(--sweet-salmon),
     white
   );
+}
+
+header {
+  position: sticky;
+  top: 0;
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 2em;
+  background-color: var(--peach-background);
+  box-shadow: var(--shadow);
+}
+
+header * {
+  margin: 0;
+  padding: 0;
 }
 
 .cvBuilder {
@@ -406,8 +423,13 @@ template {
   margin: 2em 1em 1em 1em;
   padding: 3cqw;
   container-type: inline-size;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  /* box-shadow: var(--shadow); */
 }
+
+/* .cvPage.saving {
+  box-shadow: none;
+  margin: 0;
+} */
 
 .cvPage h1,
 .cvPage h2,
@@ -499,7 +521,7 @@ template {
   display: grid;
   background-color: white;
   grid-template-rows: min-content 0fr;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: var(--shadow);
   border-radius: 30px;
   transition: all 0.4s ease;
 }
@@ -804,6 +826,12 @@ textarea {
 
 .cvForms textarea:focus {
   transform: scale(1.01);
+}
+
+@media print {
+  .cvPage {
+    box-shadow: none;
+  }
 }
 
 @media (width <= 1200px) {
