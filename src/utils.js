@@ -1,3 +1,5 @@
+import html2pdf from "html2pdf.js";
+
 const MONTHS = [
   "January",
   "February",
@@ -21,4 +23,8 @@ export function inputDateToString(inputDate) {
   console.log(MONTHS[monthIndex]);
 
   return `${MONTHS[monthIndex]} ${inputDate.slice(0, 4)}`;
+}
+
+export function saveElementAsPdf(element) {
+  html2pdf(element);
 }
