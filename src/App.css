@@ -430,6 +430,8 @@ header * {
 .cvPage.saving {
   box-shadow: none;
   margin: 0;
+  aspect-ratio: 210 / 297;
+  break-inside: avoid;
 }
 
 .cvPage h1,
@@ -498,7 +500,7 @@ header * {
 .cvPage .educationCvContainer {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 0;
+  gap: 1em;
   margin: 1cqw 0 0 0;
   align-items: center;
 }
@@ -597,11 +599,6 @@ header * {
   .accordion.accordion:nth-child(5n + 5 of .accordion)
   .accordionTitle:hover {
   background-color: var(--teal-background-hover);
-}
-
-.accordionTitle.visible {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
 }
 
 .accordionTitle:hover {
@@ -829,13 +826,88 @@ textarea {
   transform: scale(1.01);
 }
 
-@media print {
+@media (width <= 800px) {
+  .cvBuilder {
+    padding: 0.2em;
+    gap: 0.2em;
+  }
+
+  .cvPage,
+  .cvForms {
+    margin: 0.6em;
+  }
+
   .cvPage {
-    box-shadow: none;
+    --cv-h1: 2rem;
+    --cv-h2: 1.3rem;
+    --cv-h3: 1.1rem;
+    --cv-h4: 1rem;
+    --cv-p: 0.9rem;
+
+    aspect-ratio: auto;
+  }
+
+  .cvPage .jobCvContainer,
+  .cvPage .educationCvContainer {
+    margin: 1em 0;
+  }
+  .cvPage div {
+    gap: 0.5em;
+  }
+
+  .accordionTitle {
+    padding: 0.5em;
   }
 }
 
-@media (width <= 1200px) {
+@media (width <= 799px) {
+  form,
+  fieldset,
+  .formButtonsContainer {
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+}
+
+@media (600px >= width) {
   .cvBuilder {
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+  }
+
+  .cvPage,
+  .cvForms {
+    margin: 0.3em;
+  }
+
+  .cvPage {
+    --cv-h1: 2rem;
+    --cv-h2: 1.3rem;
+    --cv-h3: 1.1rem;
+    --cv-h4: 1rem;
+    --cv-p: 0.9rem;
+
+    aspect-ratio: auto;
+  }
+
+  .cvPage .jobCvContainer,
+  .cvPage .educationCvContainer {
+    margin: 1em 0;
+  }
+}
+
+@media (380px >= width) {
+  .accordion > .accordion {
+    padding: 0 8px;
+  }
+
+  .accordionContent.visible {
+    padding: 8px;
+    margin: 0 8px;
+  }
+
+  .subjectContainer {
+    margin: 2px;
   }
 }
