@@ -887,13 +887,19 @@ textarea {
   }
 
   .cvPage {
-    --cv-h1: 2rem;
-    --cv-h2: 1.3rem;
+    --cv-h1: 1.5rem;
+    --cv-h2: 1.2rem;
     --cv-h3: 1.1rem;
     --cv-h4: 1rem;
     --cv-p: 0.9rem;
 
     aspect-ratio: auto;
+  }
+
+  .cvPage > div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 
   .cvPage .jobCvContainer,
