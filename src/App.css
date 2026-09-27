@@ -873,7 +873,7 @@ textarea {
 
   .cvForms input:focus,
   .cvForms textarea:focus {
-    transform: scale(1.02);
+    transform: scale(1);
   }
 }
 
