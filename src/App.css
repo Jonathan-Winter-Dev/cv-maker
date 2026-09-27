@@ -870,6 +870,11 @@ textarea {
     flex-wrap: wrap;
     gap: 1em;
   }
+
+  .cvForms input:focus,
+  .cvForms textarea:focus {
+    transform: scale(1.02);
+  }
 }
 
 @media (600px >= width) {
